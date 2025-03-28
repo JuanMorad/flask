@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Resultados - Eficiencia Energética</title>
+  <style>
+    body {
+        background-color: #f4f4f4;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .rez__img {
+        width: 200px;
+        margin: 20px 0;
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 18px;
+        color: #666;
+    }
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        font-size: 18px;
+        color: white;
+        background-color: #0EB07C;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background-color: #087d58;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__text">
+      <h1>Resultados de Eficiencia Energética</h1>
+      <p>Descubre cuán eficiente es tu hogar en el consumo de energía.</p>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <h2>La eficiencia energética de tu casa:</h2>
+      
+      {% if result <= 150 %}
+        <img class="rez__img" src="{{ url_for('static', filename='img/planet_good.svg') }}" alt="Eficiencia Alta">
+        <p><strong>Su resultado:</strong> {{ result }} kWh</p>
+        <p>¡Tu hogar es notablemente eficiente en cuanto a consumo de energía!</p>
+      
+      {% elif result > 150 and result < 300 %}
+        <img class="rez__img" src="{{ url_for('static', filename='img/planet_medium.svg') }}" alt="Eficiencia Media">
+        <p><strong>Su resultado:</strong> {{ result }} kWh</p>
+        <p>La eficiencia energética de tu hogar es media.</p>
+      
+      {% else %}
+        <img class="rez__img" src="{{ url_for('static', filename='img/planet_bad.svg') }}" alt="Eficiencia Baja">
+        <p><strong>Su resultado:</strong> {{ result }} kWh</p>
+        <p>¡La eficiencia energética de tu hogar está por debajo de la media!</p>
+      {% endif %}
+
+      <!-- Botón para volver al inicio -->
+      <a href="{{ url_for('index') }}" class="btn">Volver al inicio</a>
+    </div>
+  </main>
+  
+  <footer>
+  </footer>
+</body>
+</html>

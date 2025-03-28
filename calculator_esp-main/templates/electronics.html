@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Calculadora de eficiencia energética para hogares inteligentes</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__text">
+      <h1>Calcule la eficiencia energética de su hogar</h1>
+      <p>Tome la iniciativa y resuelva el problema del consumo excesivo de energía</p>
+    </div>
+  </header>
+  <main>
+    <h2 class="main__title">Especifique el número de dispositivos que utilizan electricidad:</h2>
+    <ul class="list" id="list">
+      <li class="list__item">
+        <a href="{{ url_for('end', size=size, lights=lights, device=4) }}">
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>3-5 aparatos</span>
+        </a>
+      </li>
+      <li class="list__item">
+        <a href="{{ url_for('end', size=size, lights=lights, device=7) }}">
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>6-8 aparatos</span>
+        </a>
+      </li>
+      <li class="list__item">
+        <a href="{{ url_for('end', size=size, lights=lights, device=10) }}">
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>10+ aparatos</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
